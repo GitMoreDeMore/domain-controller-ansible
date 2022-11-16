@@ -1,0 +1,5 @@
+[windcprimary]
+192.168.1.210 #mikedc01
+
+[gateway]
+192.168.1.1

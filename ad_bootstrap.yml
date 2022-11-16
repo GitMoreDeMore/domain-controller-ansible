@@ -1,0 +1,16 @@
+---
+- hosts: all
+  vars_prompt:
+    - name: ansible_pass
+      prompt: "Please enter account password"
+  vars:
+    ansible_password: "{{ ansible_pass }}"
+  vars_files:
+    - "group_vars/windows.yml"
+  roles:
+    - role: new_domain
+      tags: [ new_domain ]
+    - role: new_dns_server
+      tags: [ new_dns_server ]
+    - role: add_dns_record
+      tags: [ add_dns_record ]

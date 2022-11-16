@@ -1,0 +1,5 @@
+---
+- name: New Domain tasks
+  include_tasks: "{{ item }}"
+  with_items:
+    - setup_dns_server.yml

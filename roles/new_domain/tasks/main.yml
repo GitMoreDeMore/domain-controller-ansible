@@ -1,0 +1,9 @@
+---
+- name: New Domain tasks
+  include_tasks: "{{ item }}"
+  with_items:
+    - ntp_settings.yml
+    - firewall_settings.yml
+    - change_hostname.yml
+    - create_domain.yml
+    - install_dsc_modules.yml

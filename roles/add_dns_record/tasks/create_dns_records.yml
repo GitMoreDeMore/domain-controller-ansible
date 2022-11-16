@@ -1,0 +1,16 @@
+---
+- name: Create {{ hostname }} A Record
+  win_dsc:
+    resource_name: DnsRecordA
+    ZoneName: '{{ domain_name }}'
+    Name: '{{ hostname }}'
+    Ipv4Address: '{{ host_address }}'
+    Ensure: present
+
+- name: Create {{ hostname }} PTR Record
+  win_dsc:
+    resource_name: DnsRecordPtr
+    ZoneName: '{{ reverse_dns_zone_name }}'
+    Name: '{{ hostname + "." + domain_name }}'
+    IpAddress: '{{ host_address }}'
+    Ensure: present

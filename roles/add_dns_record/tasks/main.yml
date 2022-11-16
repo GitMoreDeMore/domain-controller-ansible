@@ -1,0 +1,5 @@
+---
+- name: Create DNS A and PTR records
+  include_tasks: "{{ item }}"
+  with_items:
+    - create_dns_records.yml

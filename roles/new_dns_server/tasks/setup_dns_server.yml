@@ -1,0 +1,13 @@
+---
+- name: Set internal DNS server 
+  win_dns_client:
+    adapter_names: '*'
+    ipv4_addresses:
+    - '{{ host_address }}'
+
+- name: Create reverse lookup zone
+  win_dsc:
+    resource_name: xDnsServerADZone
+    Name: '{{ reverse_dns_zone_name }}'
+    ReplicationScope: forest
+    Ensure: present

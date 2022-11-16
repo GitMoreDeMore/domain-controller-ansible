@@ -1,0 +1,6 @@
+---
+- name: Set NTP Servers
+  win_shell: 'w32tm /config /syncfromflags:manual /manualpeerlist:{{ ntp_servers  + ",0x8" }} /reliable:yes /update'
+
+- name: Force the time service update
+  win_shell: 'w32tm /config /update'
